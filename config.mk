@@ -62,4 +62,4 @@ SYN_FILES = \
 # DI_FILE is used by the di.mk file
 DI_FILE = terminals.py
 # include di.mk to auto build the di files
-include ../lib/Makefiles/di.mk
+include ../../../lib/Makefiles/di.mk

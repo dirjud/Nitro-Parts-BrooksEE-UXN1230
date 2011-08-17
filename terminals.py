@@ -105,7 +105,7 @@ di=DeviceInterface(
 
 # load the baseline UXN1212 terminals
 import nitro
-di = nitro.load_di("BrooksEE/UXN1212/UXN1212.xml", di)
+di=nitro.load_di("Cypress/CY7C68013/CY7C68013.xml", di)
 di = nitro.load_di("Xilinx/Spartan/Spartan.xml", di)
 di["FX2_SFR"]["IOA"]["A0"].name = "init_b"
 di["FX2_SFR"]["IOA"]["A1"].name = "done"
