@@ -4,5 +4,6 @@
 sim/obj_dir
 rtl_auto
 xilinx
-!xilunx/UXN1230.ucf
-!lib/rtl/xilinx
+!xilinx/UXN1230.ucf
+UXN1230.xml
+
