@@ -1,0 +1,38 @@
+============
+SIMULATION
+============
+
+This project supports two different simulation options.
+
+One uses Xilinx simulation ISIM. It uses xilinx's secure IP module to
+simulate cycle accurate dram transactions. The other is a verilator
+sim which uses a simple home-grown dram controller and model that is
+not cycle accurate. This was necessary because verilator does not
+support encrypted modules as xilinx ISIM does.
+
+
+To run ISIM sim, run:
+ > make sim_isim
+from the top level. Modify the sim/isim_tests.v file to change
+your tests.
+
+To run Verilator sim, run:
+ > make sim
+Then you can use the devfactory in the sim directory to run
+ubitests in the py/UXN1230/ubitest suite.
+
+
+========================
+COREGEN / DDR2 INTERFACE
+========================
+
+You must use Xilinx Coregen to generate the DDR2 interface. Here are
+the options:
+
+- Spartan 6, xc6slx16, Package csg324, speed grade 2
+- Memory Bank 3 (C3)
+- Frequency: ????
+- Part: MT47H32M16HR-25E:G-ND
+- Configuration: Four bi-directional ports
+- Round Robin Arbitration
+- Calbirated Input Termination RZQ: P4, ZIO: N4

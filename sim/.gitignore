@@ -1,0 +1,5 @@
+*.prj
+*.exe
+isim
+obj_dir
+*.log

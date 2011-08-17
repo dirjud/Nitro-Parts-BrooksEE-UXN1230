@@ -1,0 +1,8 @@
+*.vcd
+*~
+*.so
+sim/obj_dir
+rtl_auto
+xilinx
+!xilunx/UXN1230.ucf
+!lib/rtl/xilinx
