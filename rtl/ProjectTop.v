@@ -265,6 +265,11 @@ module ProjectTop
          di_read_rdy  = 1;  // always ready on other registers
          di_write_rdy = 1;
          di_transfer_status = 0;
+      end else if(di_term_addr == `TERM_FPGA_DUMMY) begin
+	 di_reg_datao = 16'hbbbb;
+	 di_read_rdy  = 1;
+	 di_write_rdy = 1;
+	 di_transfer_status = 0;
       end else begin
          di_reg_datao = 16'hAAAA;
          di_read_rdy  = 1;

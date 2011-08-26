@@ -13,6 +13,12 @@ di=DeviceInterface(
             regDataWidth=16,
             ),
         Terminal(
+            name='DUMMY_FPGA',
+            comment='Dummy FPGA Terminal',
+            regAddrWidth=16, 
+            regDataWidth=16,
+            ),
+        Terminal(
             name='FPGA',
             comment='FPGA registers',
             addr=0x1,
