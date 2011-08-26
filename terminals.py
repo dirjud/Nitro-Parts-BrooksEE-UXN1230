@@ -7,6 +7,12 @@ di=DeviceInterface(
     terminal_list=[
         ########################################################################
         Terminal(
+            name='DUMMY',
+            comment='Dummy Terminal',
+            regAddrWidth=16, 
+            regDataWidth=16,
+            ),
+        Terminal(
             name='FPGA',
             comment='FPGA registers',
             addr=0x1,

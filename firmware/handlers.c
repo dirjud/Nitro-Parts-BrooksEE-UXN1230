@@ -24,8 +24,10 @@
 #include <m24xx.h> // fx2 prom
 #include <spartan.h>
 #include "terminals.h"
+#include <dummy.h>
 
 io_handler __code io_handlers[] = {
+ DECLARE_DUMMY_HANDLER(TERM_DUMMY),
  DECLARE_FX2_HANDLER(TERM_FX2),
  DECLARE_FX2SFR_HANDLER(TERM_FX2_SFR),
  DECLARE_M24XX_HANDLER(TERM_FX2_PROM),
