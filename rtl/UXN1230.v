@@ -244,7 +244,7 @@ module UXN1230
    wire         p1_rd_error     , p2_rd_error     , p3_rd_error     ;
    
    BUFG ifclk_bufg(.I(fx2_ifclk), .O(ifclk));
-
+   
    HostInterface HostInterface
      (
       .ifclk                            (ifclk),
@@ -726,6 +726,11 @@ module UXN1230
          di_read_rdy  = 1;
          di_write_rdy = 1;
          di_transfer_status = 0;
+      end else if(di_term_addr == `TERM_DUMMY_FPGA) begin
+	 di_reg_datao = 16'h9988;
+	 di_read_rdy  = 1;
+	 di_write_rdy = 1;
+	 di_transfer_status = 0;
       end else begin
          di_reg_datao = pt_di_reg_datao;
          di_read_rdy  = pt_di_read_rdy;
@@ -733,7 +738,7 @@ module UXN1230
          di_transfer_status = pt_di_transfer_status;
       end
    end
-
+   
    wire term_dram       = (di_term_addr == `TERM_DRAM);
    wire dram_write      = term_dram && di_write;
    wire dram_write_mode = term_dram && di_write_mode;
