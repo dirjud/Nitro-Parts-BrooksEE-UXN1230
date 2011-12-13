@@ -1068,7 +1068,7 @@ module port_ctrl
             if(rfifo_waddr == stop_addr) begin
                reading   <= 0;
             end else begin
-               rfifo[rfifo_waddr] = mem_rdata;
+               rfifo[rfifo_waddr] <= mem_rdata;
                rfifo_waddr <= rfifo_waddr + 1;
                mem_addr    <= mem_addr + 1;
             end
