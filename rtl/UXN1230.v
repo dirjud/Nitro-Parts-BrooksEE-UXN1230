@@ -517,7 +517,8 @@ module UXN1230
    wire [3:0] status_write_underrun = { p3_wr_underrun,p2_wr_underrun,p1_wr_underrun,p0_wr_underrun };
    wire [3:0] status_read_error     = { p3_rd_error,   p2_rd_error,   p1_rd_error,   p0_rd_error    };
    wire [3:0] status_read_overflow  = { p3_rd_overflow,p2_rd_overflow,p1_rd_overflow,p0_rd_overflow };
-   wire       status_rst;
+   wire       status_rst_wire;
+   reg 	      status_rst;
    
    reg  status_calib_done;
    wire [31:0]  status_mcb = 0;
@@ -538,6 +539,7 @@ module UXN1230
 
    always @(posedge ifclk) begin
       status_calib_done <= status_calib_done_wire;
+      status_rst <= status_rst_wire;
    end
    
    assign sdram_addr[14:13] = 0;
@@ -574,40 +576,9 @@ module UXN1230
       
 
 	.c3_calib_done                       (status_calib_done_wire),
-	.c3_rst0                             (status_rst),
-//	.c3_clk0                             (c3_clk0),
-
-	.c3_sys_clk(ifclk),
-	.c3_sys_rst_i(resetb && !mcb_reset),
-
-//   sdram_clks sdram_clks
-//     (
-//      .ifclk                            (ifclk),
-//      .sys_rst_n                        (resetb && !mcb_reset),
-//      .async_rst                        (c3_async_rst),
-//      .sysclk_2x                        (c3_sysclk_2x),
-//      .sysclk_2x_180                    (c3_sysclk_2x_180),
-//      .mcb_drp_clk                      (c3_mcb_drp_clk),
-//      .pll_ce_0                         (c3_pll_ce_0),
-//      .pll_ce_90                        (c3_pll_ce_90),
-//      .pll_locked                       (status_pll_locked)
-//      );
-//   
-//   memc_wrapper 
-//     memc_wrapper_inst
-//       (
-//        .async_rst                           (c3_async_rst),
-//        .sysclk_2x                           (c3_sysclk_2x),
-//        .sysclk_2x_180                       (c3_sysclk_2x_180),
-//        .pll_ce_0                            (c3_pll_ce_0),
-//        .pll_ce_90                           (c3_pll_ce_90),
-//        .mcb_drp_clk                         (c3_mcb_drp_clk),
-//
-//        .pll_lock                            (status_pll_locked),
-////        .status                              (status_mcb),
-//        .selfrefresh_enter                   (mode_selfrefresh),
-//        .selfrefresh_mode                    (status_selfrefresh_mode_wire),
-//        );
+	.c3_rst0                             (status_rst_wire),
+	.c3_sys_clk                          (ifclk),
+	.c3_sys_rst_i                        (resetb && !mcb_reset),
 
 	
         .c3_p0_cmd_clk                          (ifclk),

@@ -3,9 +3,9 @@
 # specific ucf file. For example, put the drive strength and voltage
 # for the lXX and nXX buses in a separate file.
 
-#NET "ifclk" TNM_NET = FFS "ifClk";
-NET "mig_38/memc3_infrastructure_inst/sys_clk_ibufg" TNM_NET = FFS "ifClk";
-TIMESPEC "TS_ifClk" = PERIOD "ifClk" 20.833 ns HIGH 50 %;
+NET "fx2_ifclk" TNM_NET = fx2_ifclk;
+TIMESPEC TS_fx2_ifclk = PERIOD "fx2_ifclk" 20.833333 ns HIGH 50%;
+NET : status_rst : TIG;
 
 NET "fx2_ifclk"        LOC="V10" | IOSTANDARD=LVCMOS33 | DRIVE=2;
 NET "fx2_flags[0]"     LOC="R7"  | IOSTANDARD=LVCMOS33 | DRIVE=2;
