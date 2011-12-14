@@ -3,16 +3,16 @@ NITRO_PARTS_DIR ?= ../..
 UXN1230_DIR = $(NITRO_PARTS_DIR)/BrooksEE/UXN1230
 
 UXN1230_INC_PATHS = $(UXN1230_DIR)/sim/ddr2 \
-                    $(NITRO_PARTS_DIR)/lib/rtl/xilinx \
+                    $(NITRO_PARTS_DIR)/lib/xilinx \
 
 UXN1230_SIM_FILES = \
 	$(UXN1230_DIR)/sim/UXN1230_tb.v \
-	$(NITRO_PARTS_DIR)/lib/rtl/HostInterface/models/fx2.v \
+	$(NITRO_PARTS_DIR)/lib/HostInterface/models/fx2.v \
         $(UXN1230_DIR)/sim/ddr2/ddr2_model_c3.v \
 
 UXN1230_SYN_FILES = \
 	$(UXN1230_DIR)/rtl/UXN1230.v \
-	$(NITRO_PARTS_DIR)/lib/rtl/HostInterface/rtl/HostInterface.v \
+	$(NITRO_PARTS_DIR)/lib/HostInterface/rtl/HostInterface.v \
 	$(UXN1230_DIR)/rtl/ddr2/mig_38.v \
 	$(UXN1230_DIR)/rtl/ddr2/infrastructure.v \
 	$(UXN1230_DIR)/rtl/ddr2/memc_wrapper.v \
