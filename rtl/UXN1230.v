@@ -517,7 +517,7 @@ module UXN1230
    wire [3:0] status_write_underrun = { p3_wr_underrun,p2_wr_underrun,p1_wr_underrun,p0_wr_underrun };
    wire [3:0] status_read_error     = { p3_rd_error,   p2_rd_error,   p1_rd_error,   p0_rd_error    };
    wire [3:0] status_read_overflow  = { p3_rd_overflow,p2_rd_overflow,p1_rd_overflow,p0_rd_overflow };
-   wire       status_rst_wire;
+//   wire       status_rst_wire;
    reg 	      status_rst;
    
    reg  status_calib_done;
@@ -539,7 +539,7 @@ module UXN1230
 
    always @(posedge ifclk) begin
       status_calib_done <= status_calib_done_wire;
-      status_rst <= status_rst_wire;
+      status_rst <= 1'b0; //status_rst_wire;
    end
    
    assign sdram_addr[14:13] = 0;
@@ -576,7 +576,7 @@ module UXN1230
       
 
 	.c3_calib_done                       (status_calib_done_wire),
-	.c3_rst0                             (status_rst_wire),
+	.c3_rst0                             (), //status_rst_wire),
 	.c3_sys_clk                          (ifclk),
 	.c3_sys_rst_i                        (resetb && !mcb_reset),
 

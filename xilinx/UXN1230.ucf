@@ -4,8 +4,10 @@
 # for the lXX and nXX buses in a separate file.
 
 NET "fx2_ifclk" TNM_NET = fx2_ifclk;
-TIMESPEC TS_fx2_ifclk = PERIOD "fx2_ifclk" 20.833333 ns HIGH 50%;
-NET : status_rst : TIG;
+TIMESPEC TS_fx2_ifclk = PERIOD "fx2_ifclk" 20.833 ns HIGH 50%;
+
+#NET : status_rst : TIG;
+#NET : mig_38/memc3_infrastructure_inst/rst0_sync_r[24] : TIG;
 
 NET "fx2_ifclk"        LOC="V10" | IOSTANDARD=LVCMOS33 | DRIVE=2;
 NET "fx2_flags[0]"     LOC="R7"  | IOSTANDARD=LVCMOS33 | DRIVE=2;
