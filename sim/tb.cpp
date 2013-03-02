@@ -138,6 +138,9 @@ static PyObject *end(PyObject *self, PyObject *args) {
   Py_RETURN_NONE; 
 }
 
+#ifdef USER_TB
+#include <user_tb.cpp>
+#endif
 
 /*************************************  Vtb extension module ****************/
 static PyMethodDef Vtb_methods[] = {
@@ -147,6 +150,9 @@ static PyMethodDef Vtb_methods[] = {
   {"adv",  adv,  METH_VARARGS, "Advances sim x number of clk cycles." },
   {"end",  end,  METH_NOARGS, "Ends simulation & deletes all sim objects." },
   {"get_dev", get_dev, METH_NOARGS, "Returns a dev handle." },
+#ifdef USER_PYTHON_METHODS
+USER_PYTHON_METHODS
+#endif
   {NULL}  /* Sentinel */
 };
 
