@@ -59,6 +59,9 @@ class UXN1230(nitro.DevBase):
             raise Exception("The FPGA did not program." ) 
         log.info("Programming succeeded")
 
+    def program_prom(self,filename):
+        fx2.program_fx2_prom(self,filename,'FX2_PROM')
+
     def program_fpga_prom(self, filename):
         """Reprograms spi flash with new prom file.  Forces a reboot the FPGA to run this bitfile when it is complete"""
         from nitro_parts.Numonyx import M25P
