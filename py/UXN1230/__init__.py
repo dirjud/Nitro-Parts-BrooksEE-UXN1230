@@ -60,6 +60,7 @@ class UXN1230(nitro.DevBase):
         log.info("Programming succeeded")
 
     def program_prom(self,filename):
+        """Progam FX2 prom with specified file."""
         fx2.program_fx2_prom(self,filename,'FX2_PROM')
 
     def program_fpga_prom(self, filename):
